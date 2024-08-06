@@ -13,14 +13,12 @@ def check_win(board):
         if board[0][col] == board[1][col] == board[2][col] != "":
             return board[0][col]
 
-
     if board[0][0] == board[1][1] == board[2][2] != "":
         return board[0][0]
     if board[0][2] == board[1][1] == board[2][0] != "":
         return board[0][2]
 
     return None
-
 
 def check_tie(board):
     for row in range(3):
@@ -51,7 +49,6 @@ def button_click(row, col):
         else:
             current_player = "O" if current_player == "X" else "X"
 
-
 def disable_buttons():
     for row in range(3):
         for col in range(3):
@@ -68,7 +65,6 @@ def reset_game():
 root = tk.Tk()
 root.title("Tic-Tac-Toe")
 
-
 board = [["", "", ""], ["", "", ""], ["", "", ""]]
 current_player = "X"
 button = [[None for _ in range(3)] for _ in range(3)]
@@ -77,7 +73,6 @@ for row in range(3):
     for col in range(3):
         button[row][col] = tk.Button(root, text="", width=6, height=2, command=lambda r=row, c=col: button_click(r, c))
         button[row][col].grid(row=row, column=col)
-
 
 score_label = tk.Label(root, text=f"Player X: {player1_score} - Player O: {player2_score}")
 score_label.grid(row=3, column=0, columnspan=3)
